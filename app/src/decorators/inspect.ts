@@ -1,5 +1,5 @@
 export function inspect() {
-  return function(
+  return function (
     target: any,
     propertyKey: string,
     descriptor: PropertyDescriptor
@@ -11,7 +11,7 @@ export function inspect() {
       const retorno = metodoOriginal.apply(this, args);
       console.log(`------ Retorno: ${JSON.stringify(retorno)}`);
       return retorno;
-    }
+    };
     return descriptor;
-  }
+  };
 }

@@ -16,8 +16,6 @@ export abstract class View<T> {
     if (escapar) this.escapar = escapar;
   }
 
-  protected abstract template(model: T): string;
-
   @logarTempoDeExecucao(true)
   @inspect()
   public update(model: T): void {
@@ -27,4 +25,6 @@ export abstract class View<T> {
     }
     this.elemento.innerHTML = template
   }
+
+  protected abstract template(model: T): string;
 }
