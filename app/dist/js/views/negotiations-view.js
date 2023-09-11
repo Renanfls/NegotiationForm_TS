@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { escape } from "../decorators/escape.js";
 import { View } from "./view.js";
-export class NegociacoesView extends View {
+export class NegotiationsView extends View {
     template(model) {
         return `
       <table class="table table-hover table-bordered">
@@ -18,17 +18,17 @@ export class NegociacoesView extends View {
           </tr>
         </thead>
         <tbody>
-          ${model.lista().map(negociacao => {
+          ${model.list().map(negotiation => {
             return `
               <tr>
                 <td>
-                  ${this.formatar(negociacao.data)}
+                  ${this.format(negotiation.date)}
                 </td>
                 <td>
-                  ${negociacao.quantidade}
+                  ${negotiation.quantity}
                 </td>
                 <td>
-                  ${negociacao.valor}
+                  ${negotiation.value}
                 </td>
               </tr>
             `;
@@ -37,10 +37,10 @@ export class NegociacoesView extends View {
       </table>
     `;
     }
-    formatar(data) {
+    format(data) {
         return new Intl.DateTimeFormat().format(data);
     }
 }
 __decorate([
     escape
-], NegociacoesView.prototype, "template", null);
+], NegotiationsView.prototype, "template", null);

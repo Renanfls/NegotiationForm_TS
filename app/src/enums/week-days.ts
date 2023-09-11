@@ -1,4 +1,4 @@
-export enum DiasDaSemana {
+export enum WeekDays {
   DOMINGO = 0,
   SEGUNDA = 1,
   TERCA = 2,

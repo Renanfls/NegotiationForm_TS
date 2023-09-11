@@ -1,6 +1,6 @@
 import { View } from "./view.js";
 
-export class MensagemView extends View<string> {
+export class MessageView extends View<string> {
 
   protected template(model: string): string {
     return `
