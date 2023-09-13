@@ -48,6 +48,13 @@ export class NegotiationController {
     this.negotiationsService
       .getNegotiationsToday()
       .then((negotiationsToday) => {
+        return negotiationsToday.filter((negotiationsToday) => {
+          return !this.negotiations
+            .list()
+            .some((negotiation) => negotiation.isEqual(negotiationsToday));
+        });
+      })
+      .then((negotiationsToday) => {
         for (let negotiation of negotiationsToday) {
           this.negotiations.add(negotiation);
         }

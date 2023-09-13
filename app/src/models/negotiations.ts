@@ -1,7 +1,7 @@
-import { Printable } from "../interfaces/printable.js";
+import { Model } from "../interfaces/model.js";
 import { Negotiation } from "./negotiation.js";
 
-export class Negotiations implements Printable {
+export class Negotiations implements Model<Negotiations> {
   private negotiations: Array<Negotiation> = [];
 
   public add(negotiation: Negotiation) {
@@ -14,5 +14,11 @@ export class Negotiations implements Printable {
 
   public forText(): string {
     return JSON.stringify(this.negotiations, null);
+  }
+
+  public isEqual(negotiations: Negotiations): boolean {
+    return (
+      JSON.stringify(this.negotiations) === JSON.stringify(negotiations.list())
+    );
   }
 }
